@@ -8,16 +8,6 @@ namespace LaborationNmr3
 {
     class Program
     {
-        /*
-        static List<string> Verb = new List<string>
-        { "akta","ansöka","bada","baka","dansa","dö","elda","fatta","fråga","förklara"};
-        static List<string> Verb1 = new List<string>
-        { "akta","ansöka","","","","","","","",""};
-        static List<string> Verb2 = new List<string>
-        { "akta","ansöka","","","","","","","",""};
-        static List<string> Verb3 = new List<string>
-        { "akta","ansöka","","","","","","","",""};
-        */
         public static StringBuilder story = new StringBuilder();
 
         public static void Main(string[] args)
@@ -34,9 +24,9 @@ namespace LaborationNmr3
                     int Read = int.Parse(Console.ReadLine());
                     if (Read == 1)
                     {
-                        Ordklass.VerbMeny();
-                        int read = int.Parse(Console.ReadLine()) - 1;
-                        story.Append(Ordklass.Verb[read]);
+                        Ordklass.VerbMeny(); 
+                        int read = int.Parse(Console.ReadLine()) - 1; //subtraherar 1 för att välja rätt platt i Listan Verb
+                        story.Append(Ordklass.Verb[read]); // skickar ord till stringbuilder objektet "story"
                         Console.Clear();
                     }
 
@@ -75,62 +65,40 @@ namespace LaborationNmr3
                         Console.WriteLine("Välj mellan alternativen 1-6\n");
                     }
                 }
-                catch (Exception e)
+                catch (Exception e) //fångar felaktiga inputs
                 {
                     Console.WriteLine("Exception: " + e.Message);
                 }
             }
             Goodbye();
-
-            /*
-            int p = 1;
-            for (int i = 0; i < Verb.Count; i++ ,p++)
-            {
-                Console.Write(p);
-                Console.WriteLine(". {0}",Verb[i]);
-            }
-            */
-
-
         }
         public static void Introduction()
-        {
-            Console.Title = "Din Story";
-            Console.WriteLine("Välkommen...");
+        {   //berättar appens syfte
+            Console.Title = "Din Story"; 
+            Console.WriteLine("Välkommen till Din Story!");
+            Console.WriteLine("Här kan du med hjälp av våran stora ord-arsenal och \nditt egna bottenlösa hjärnkontor skapa din alldeles egna historia");
+            Console.WriteLine("\nTryck på valfri knapp för att starta äventyret..");
             Console.ReadKey();
             Console.Clear();
           
         }
         public static void Meny()
         {
-            string[] Ordklasser = new string[6] 
+            string[] MenyAlt = new string[6] //Huvudmenyns alternativ
             { "1. Verb", "2. Adjektiv", "3. Substantiv", "4. Adverb","5. Fri text","6. Avsluta" };
 
-            for (int i = 0; i < Ordklasser.Length; i++)
+            for (int i = 0; i < MenyAlt.Length; i++) //Skriver ut den Huvudmenyn
             {
-                Console.WriteLine(Ordklasser[i]);
+                Console.WriteLine(MenyAlt[i]);
             }
             
         }
         public static void Goodbye()
         {
             Console.Clear();
-            Console.WriteLine("Din story: {0}", story);
+            Console.WriteLine("Din story: {0}", story); // skriver ut din färdiga story
             Console.WriteLine("\nTryck på valfri knapp för att avsluta...");
             Console.ReadLine();
         }
-        /*
-        public static void VerbMeny()
-        {
-            Console.Clear();
-            int p = 1;
-            for (int i = 0; i < Verb.Count; i++, p++)
-            {
-                Console.Write(p);
-                Console.WriteLine(". {0}", Verb[i]);
-            }
-
-        }
-        */
     }
 }

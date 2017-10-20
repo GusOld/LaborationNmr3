@@ -20,10 +20,10 @@ namespace LaborationNmr3
         public static void VerbMeny()
         {
             Console.Clear();
-            int p = 1;
-            for (int i = 0; i < Verb.Count; i++, p++)
+            int p = 1; //ordets nmr plats i menyn
+            for (int i = 0; i < Verb.Count; i++, p++) //skriver ut List<string>
             {
-                Console.Write(p);
+                Console.Write(p); 
                 Console.WriteLine(". {0}", Verb[i]);
             }
 
